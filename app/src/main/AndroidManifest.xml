@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TableFlow"
         tools:targetApi="31">
         <activity
+            android:name=".EditProfileScreen"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileScreen"
+            android:exported="false" />
+        <activity
             android:name=".ReservationFormScreen"
             android:exported="false" />
         <activity

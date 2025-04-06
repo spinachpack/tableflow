@@ -65,5 +65,12 @@ class DashboardScreen : Activity() {
             startActivity(intent)
         }
 
+        //navbar
+        val moreButton : LinearLayout = findViewById(R.id.moreButton)
+        moreButton.setOnClickListener {
+            val intent = Intent(this,ProfileScreen::class.java)
+            startActivity(intent)
+        }
+
     }
 }
