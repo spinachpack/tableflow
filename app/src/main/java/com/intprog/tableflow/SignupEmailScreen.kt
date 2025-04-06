@@ -8,12 +8,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 
 class SignupEmailScreen : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_email_screen)
 
+        val FirstName = findViewById<EditText>(R.id.editTextFirstName)
+        val LastName = findViewById<EditText>(R.id.editTextLastName)
+        val Email = findViewById<EditText>(R.id.editTextEmail)
+        val Phone = findViewById<EditText>(R.id.editTextPhone)
+        val Password = findViewById<EditText>(R.id.editTextPassword)
+        val ConfirmPassword = findViewById<EditText>(R.id.editTextConfirmPassword)
 
         val backButton: LinearLayout =findViewById(R.id.backButton)
         val buttonSignUp = findViewById<Button>(R.id.buttonSignUp)
@@ -33,8 +40,26 @@ class SignupEmailScreen : Activity() {
         }
 
         buttonSignUp.setOnClickListener{
-            val intent = Intent(this,LoginScreen::class.java)
-            startActivity(intent)
+            if(FirstName.text.toString().isNullOrEmpty()
+                ||LastName.text.toString().isNullOrEmpty()
+                ||Email.text.toString().isNullOrEmpty()
+                ||Phone.text.toString().isNullOrEmpty()
+                ||Password.text.toString().isNullOrEmpty()
+                ||ConfirmPassword.text.toString().isNullOrEmpty()){
+                    Toast.makeText(this, "Please fill in all the fields.", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+            }
+
+            startActivity(
+                Intent(this, LoginScreen::class.java).apply{
+                    putExtra("FirstName", FirstName.text.toString())
+                    putExtra("LastName", LastName.text.toString())
+                    putExtra("Email", Email.text.toString())
+                    putExtra("Phone", Phone.text.toString())
+                    putExtra("Password", Password.text.toString())
+                    putExtra("ConfirmPassword", ConfirmPassword.text.toString())
+                }
+            )
         }
     }
 

@@ -82,7 +82,7 @@
                 android:layout_marginBottom="4dp"/>
 
             <EditText
-                android:id="@+id/editTextFirstName"
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:hint="Password"
