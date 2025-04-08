@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -13,22 +12,15 @@ import android.widget.Toast
 
 class EditProfileScreen : Activity() {
 
-    private lateinit var editTextFirstName: EditText
-    private lateinit var editTextLastName: EditText
-    private lateinit var editTextPhone: EditText
-    private lateinit var buttonChangePassword: Button
-    private lateinit var buttonUpdate: Button
-    private lateinit var backButton: LinearLayout
-    private lateinit var changeProfilePicture: TextView
-    private lateinit var homeButton: LinearLayout
-    private lateinit var sessionManager: SessionManager
+    private var originalFirstName: String = ""
+    private var originalLastName: String = ""
+    private var originalPhone: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile_screen)
 
-        // Initialize SessionManager
-        sessionManager = SessionManager(this)
+        val sessionManager = SessionManager(this)
 
         // Check if user is logged in
         if (!sessionManager.checkLogin()) {
@@ -38,56 +30,108 @@ class EditProfileScreen : Activity() {
             return
         }
 
-        // Initialize views
-        editTextFirstName = findViewById(R.id.editTextFirstName)
-        editTextLastName = findViewById(R.id.editTextLastName)
-        editTextPhone = findViewById(R.id.editTextPhone)
-        buttonChangePassword = findViewById(R.id.buttonChangePassword)
-        buttonUpdate = findViewById(R.id.buttonUpdate)
-        backButton = findViewById(R.id.backButton)
-        changeProfilePicture = findViewById(R.id.changeProfilePicture)
-        homeButton = findViewById(R.id.homeButton)
+        val editTextFirstName: EditText = findViewById(R.id.editTextFirstName)
+        val editTextLastName: EditText = findViewById(R.id.editTextLastName)
+        val editTextPhone: EditText = findViewById(R.id.editTextPhone)
+        val buttonChangePassword: Button = findViewById(R.id.buttonChangePassword)
+        val buttonUpdate: Button = findViewById(R.id.buttonUpdate)
+        val backButton: LinearLayout = findViewById(R.id.backButton)
+        val changeProfilePicture: TextView = findViewById(R.id.changeProfilePicture)
+        val homeButton: LinearLayout = findViewById(R.id.homeButton)
+        val notificationButton: LinearLayout = findViewById(R.id.notificationButton)
+        val historyButton: LinearLayout = findViewById(R.id.historyButton)
+        val moreButton: LinearLayout = findViewById(R.id.moreButton)
 
-        // Load user data
-        loadUserData()
+        loadUserData(sessionManager, editTextFirstName, editTextLastName, editTextPhone)
 
-        // Update profile button click
         buttonUpdate.setOnClickListener {
-            updateProfile()
+            if (isProfileChanged(editTextFirstName, editTextLastName, editTextPhone)) {
+                showConfirmationDialog(sessionManager, editTextFirstName, editTextLastName, editTextPhone)
+            } else {
+                Toast.makeText(this, "No changes made to profile", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
 
-        // Change password button click
         buttonChangePassword.setOnClickListener {
             val intent = Intent(this, SetNewPassScreen::class.java)
             startActivity(intent)
             finish()
         }
 
-        // Back button click
         backButton.setOnClickListener {
-            onBackPressed()
+            finish()
         }
 
-        // Change profile picture click
         changeProfilePicture.setOnClickListener {
             Toast.makeText(this, "Profile picture change feature coming soon", Toast.LENGTH_SHORT).show()
         }
 
-        // Home button (for bottom navigation)
         homeButton.setOnClickListener {
-            // Navigate to profile screen
-            finish()
+            val intent = Intent(this, DashboardScreen::class.java)
+            startActivity(intent)
+        }
+        notificationButton.setOnClickListener {
+            val intent = Intent(this, NotificationScreen::class.java)
+            startActivity(intent)
+        }
+        moreButton.setOnClickListener {
+            val intent = Intent(this, ProfileScreen::class.java)
+            startActivity(intent)
+        }
+        historyButton.setOnClickListener {
+            val intent = Intent(this, HistoryScreen::class.java)
+            startActivity(intent)
         }
     }
 
-    private fun loadUserData() {
+    private fun loadUserData(sessionManager: SessionManager,
+                             editTextFirstName: EditText,
+                             editTextLastName: EditText,
+                             editTextPhone: EditText) {
         val user = sessionManager.getUserDetails()
-        editTextFirstName.setText(user.firstName)
-        editTextLastName.setText(user.lastName)
-        editTextPhone.setText(user.phone)
+
+        // Store original values
+        originalFirstName = user.firstName
+        originalLastName = user.lastName
+        originalPhone = user.phone
+
+        // Set values to EditText fields
+        editTextFirstName.setText(originalFirstName)
+        editTextLastName.setText(originalLastName)
+        editTextPhone.setText(originalPhone)
     }
 
-    private fun updateProfile() {
+    private fun isProfileChanged(editTextFirstName: EditText,
+                                 editTextLastName: EditText,
+                                 editTextPhone: EditText): Boolean {
+        val currentFirstName = editTextFirstName.text.toString().trim()
+        val currentLastName = editTextLastName.text.toString().trim()
+        val currentPhone = editTextPhone.text.toString().trim()
+
+        return currentFirstName != originalFirstName ||
+                currentLastName != originalLastName ||
+                currentPhone != originalPhone
+    }
+
+    private fun showConfirmationDialog(sessionManager: SessionManager,
+                                       editTextFirstName: EditText,
+                                       editTextLastName: EditText,
+                                       editTextPhone: EditText) {
+        AlertDialog.Builder(this)
+            .setTitle("Confirm Update")
+            .setMessage("Are you sure you want to update your profile information?")
+            .setPositiveButton("Yes") { _, _ ->
+                updateProfile(sessionManager, editTextFirstName, editTextLastName, editTextPhone)
+            }
+            .setNegativeButton("No", null)
+            .show()
+    }
+
+    private fun updateProfile(sessionManager: SessionManager,
+                              editTextFirstName: EditText,
+                              editTextLastName: EditText,
+                              editTextPhone: EditText) {
         val firstName = editTextFirstName.text.toString().trim()
         val lastName = editTextLastName.text.toString().trim()
         val phone = editTextPhone.text.toString().trim()

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Your app theme -->
     <style name="Theme.TableFlow" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- NumberPicker custom theme -->
+    <style name="NumberPickerTheme" parent="android:Theme.Light">
+        <item name="colorControlNormal">#FFA500</item> <!-- Orange highlight -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:background">#333333</item>
+    </style>
+
 </resources>

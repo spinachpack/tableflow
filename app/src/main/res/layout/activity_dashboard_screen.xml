@@ -448,6 +448,7 @@
         android:weightSum="4">
 
         <LinearLayout
+            android:id="@+id/homeButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -473,7 +474,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/notificationButton">
 
             <ImageView
                 android:layout_width="24dp"
@@ -494,7 +496,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/historyButton">
 
             <ImageView
                 android:layout_width="24dp"

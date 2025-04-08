@@ -284,28 +284,6 @@
                             android:tint="@android:color/white"/>
                     </LinearLayout>
                 </LinearLayout>
-
-                <!-- Time Slots Section -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Find Slots"
-                    android:textColor="#F9A825"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="8dp"/>
-
-                <!-- Time Slots Grid -->
-                <GridLayout
-                    android:id="@+id/timeSlotsGrid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="4"
-                    android:rowCount="2"
-                    android:layout_marginBottom="24dp">
-
-                    <!-- Time slots will be added programmatically -->
-                </GridLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

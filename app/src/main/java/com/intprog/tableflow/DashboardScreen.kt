@@ -65,10 +65,25 @@ class DashboardScreen : Activity() {
             startActivity(intent)
         }
 
-        //navbar
+        val homeButton : LinearLayout = findViewById(R.id.homeButton)
+        val notificationButton : LinearLayout = findViewById(R.id.notificationButton)
         val moreButton : LinearLayout = findViewById(R.id.moreButton)
-        moreButton.setOnClickListener {
+        val historyButton : LinearLayout = findViewById(R.id.historyButton)
+
+        homeButton.setOnClickListener{
+            val intent = Intent(this,DashboardScreen::class.java)
+            startActivity(intent)
+        }
+        notificationButton.setOnClickListener{
+            val intent = Intent(this,NotificationScreen::class.java)
+            startActivity(intent)
+        }
+        moreButton.setOnClickListener{
             val intent = Intent(this,ProfileScreen::class.java)
+            startActivity(intent)
+        }
+        historyButton.setOnClickListener{
+            val intent = Intent(this,HistoryScreen::class.java)
             startActivity(intent)
         }
 
