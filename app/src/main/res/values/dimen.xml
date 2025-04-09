@@ -1,0 +1,7 @@
+<!-- Add these to your res/values/dimen.xml file -->
+<resources>
+    <!-- Existing dimensions may be here -->
+    <dimen name="profile_pic_selection_indicator_size">12dp</dimen>
+    <dimen name="profile_pic_grid_size">100dp</dimen>
+    <dimen name="profile_pic_corner_radius">8dp</dimen>
+</resources>

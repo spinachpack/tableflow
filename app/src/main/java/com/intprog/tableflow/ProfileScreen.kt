@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.ImageView
 import android.app.AlertDialog
 import android.view.View
 import com.intprog.tableflow.model.ReservationManager
@@ -39,6 +40,7 @@ class ProfileScreen : Activity() {
         val editProfileButton: Button = findViewById(R.id.editProfileButton)
         val logoutButton: Button = findViewById(R.id.logoutButton)
         val backButton: LinearLayout = findViewById(R.id.backButton)
+        val profileImage: ImageView = findViewById(R.id.profileImage)
 
         // navbar buttons
         val homeButton: LinearLayout = findViewById(R.id.homeButton)
@@ -47,7 +49,7 @@ class ProfileScreen : Activity() {
         val moreButton: LinearLayout = findViewById(R.id.moreButton)
 
         // Load user data
-        loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail)
+        loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
 
         // Load upcoming reservation
         loadUpcomingReservation(sessionManager, reservationManager, textViewReservationDateTime, textViewReservationLocation)
@@ -84,8 +86,19 @@ class ProfileScreen : Activity() {
         moreButton.setOnClickListener {
             // Already on profile screen, do nothing or refresh
             // Since we're already on the ProfileScreen, we can just refresh the data
-            loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail)
+            loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
             loadUpcomingReservation(sessionManager, reservationManager, textViewReservationDateTime, textViewReservationLocation)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PROFILE_PICTURE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // Profile picture was updated, refresh the profile image
+            val profileImage: ImageView = findViewById(R.id.profileImage)
+            val sessionManager = SessionManager(this)
+            profileImage.setImageResource(sessionManager.getUserDetails().profilePictureId)
         }
     }
 
@@ -99,9 +112,10 @@ class ProfileScreen : Activity() {
         val textViewEmail: TextView = findViewById(R.id.textViewEmail)
         val textViewReservationDateTime: TextView = findViewById(R.id.textViewReservationDateTime)
         val textViewReservationLocation: TextView = findViewById(R.id.textViewReservationLocation)
+        val profileImage: ImageView = findViewById(R.id.profileImage)
 
         // Reload user data when returning to this screen
-        loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail)
+        loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
 
         // Refresh reservation status
         reservationManager.refreshReservationStatuses(sessionManager.getUserDetails().email)
@@ -113,11 +127,13 @@ class ProfileScreen : Activity() {
     private fun loadUserData(sessionManager: SessionManager,
                              textViewFullName: TextView,
                              textViewPhone: TextView,
-                             textViewEmail: TextView) {
+                             textViewEmail: TextView,
+                             profileImage: ImageView) {
         val user = sessionManager.getUserDetails()
         textViewFullName.text = "${user.firstName} ${user.lastName}"
         textViewPhone.text = user.phone
         textViewEmail.text = user.email
+        profileImage.setImageResource(user.profilePictureId)
     }
 
     private fun loadUpcomingReservation(sessionManager: SessionManager,
@@ -181,5 +197,9 @@ class ProfileScreen : Activity() {
             }
             .setNegativeButton("No", null)
             .show()
+    }
+
+    companion object {
+        private const val PROFILE_PICTURE_REQUEST_CODE = 100
     }
 }

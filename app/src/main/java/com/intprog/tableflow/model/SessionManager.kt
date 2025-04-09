@@ -2,6 +2,7 @@ package com.intprog.tableflow.model
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import com.intprog.tableflow.R
 
 class SessionManager(context: Context) {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
@@ -14,6 +15,7 @@ class SessionManager(context: Context) {
         private const val KEY_EMAIL = "email"
         private const val KEY_PHONE = "phone"
         private const val KEY_PASSWORD = "password"
+        private const val KEY_PROFILE_PICTURE_ID = "profilePictureId"
         private const val KEY_REGISTERED_EMAILS = "all_emails"
     }
 
@@ -24,6 +26,7 @@ class SessionManager(context: Context) {
         editor.putString(KEY_EMAIL, user.email)
         editor.putString(KEY_PHONE, user.phone)
         editor.putString(KEY_PASSWORD, user.password)
+        editor.putInt(KEY_PROFILE_PICTURE_ID, user.profilePictureId)
         editor.apply()
 
         // Also save user to the user registry
@@ -56,9 +59,28 @@ class SessionManager(context: Context) {
         // Also update the stored user record
         val email = sharedPreferences.getString(KEY_EMAIL, "") ?: ""
         val password = sharedPreferences.getString(KEY_PASSWORD, "") ?: ""
+        val profilePictureId = sharedPreferences.getInt(KEY_PROFILE_PICTURE_ID, R.drawable.pfphehe)
 
         if (email.isNotEmpty()) {
-            val user = User(firstName, lastName, email, phone, password)
+            val user = User(firstName, lastName, email, phone, password, profilePictureId)
+            saveUser(user)
+        }
+    }
+
+    fun updateProfilePicture(profilePictureId: Int) {
+        // Update the current session
+        editor.putInt(KEY_PROFILE_PICTURE_ID, profilePictureId)
+        editor.apply()
+
+        // Also update the stored user record
+        val email = sharedPreferences.getString(KEY_EMAIL, "") ?: ""
+        if (email.isNotEmpty()) {
+            val firstName = sharedPreferences.getString(KEY_FIRST_NAME, "") ?: ""
+            val lastName = sharedPreferences.getString(KEY_LAST_NAME, "") ?: ""
+            val phone = sharedPreferences.getString(KEY_PHONE, "") ?: ""
+            val password = sharedPreferences.getString(KEY_PASSWORD, "") ?: ""
+
+            val user = User(firstName, lastName, email, phone, password, profilePictureId)
             saveUser(user)
         }
     }
@@ -74,8 +96,9 @@ class SessionManager(context: Context) {
             val firstName = sharedPreferences.getString(KEY_FIRST_NAME, "") ?: ""
             val lastName = sharedPreferences.getString(KEY_LAST_NAME, "") ?: ""
             val phone = sharedPreferences.getString(KEY_PHONE, "") ?: ""
+            val profilePictureId = sharedPreferences.getInt(KEY_PROFILE_PICTURE_ID, R.drawable.pfphehe)
 
-            val user = User(firstName, lastName, email, phone, newPassword)
+            val user = User(firstName, lastName, email, phone, newPassword, profilePictureId)
             saveUser(user)
         }
     }
@@ -86,7 +109,8 @@ class SessionManager(context: Context) {
             lastName = sharedPreferences.getString(KEY_LAST_NAME, "") ?: "",
             email = sharedPreferences.getString(KEY_EMAIL, "") ?: "",
             phone = sharedPreferences.getString(KEY_PHONE, "") ?: "",
-            password = sharedPreferences.getString(KEY_PASSWORD, "") ?: ""
+            password = sharedPreferences.getString(KEY_PASSWORD, "") ?: "",
+            profilePictureId = sharedPreferences.getInt(KEY_PROFILE_PICTURE_ID, R.drawable.pfphehe)
         )
     }
 
@@ -111,6 +135,7 @@ class SessionManager(context: Context) {
         editor.remove(KEY_EMAIL)
         editor.remove(KEY_PHONE)
         editor.remove(KEY_PASSWORD)
+        editor.remove(KEY_PROFILE_PICTURE_ID)
         editor.apply()
     }
 

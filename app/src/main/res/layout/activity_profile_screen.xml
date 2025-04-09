@@ -65,15 +65,6 @@
                         android:src="@drawable/pfphehe"
                         app:civ_border_width="2dp"
                         app:civ_border_color="#FF5722"/>
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/camera_solid"
-                        android:layout_gravity="bottom|end"
-                        android:background="@drawable/customborder"
-                        android:padding="4dp"
-                        android:tint="#FF5722"/>
                 </FrameLayout>
 
                 <TextView

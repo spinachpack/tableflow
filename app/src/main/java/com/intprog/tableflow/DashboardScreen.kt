@@ -5,12 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.ImageView
+import com.intprog.tableflow.model.SessionManager
 
 class DashboardScreen : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard_screen)
 
+        // Get references to UI elements
         val restaurantBox : LinearLayout = findViewById(R.id.restaurantBox)
         val restaurantButton = findViewById<Button>(R.id.restaurantButton)
         val restaurantBox2 : LinearLayout = findViewById(R.id.restaurantBox2)
@@ -20,6 +23,12 @@ class DashboardScreen : Activity() {
         val restaurantBox4 : LinearLayout = findViewById(R.id.restaurantBox4)
         val restaurantButton4 = findViewById<Button>(R.id.restaurantButton4)
 
+        val profileImage: ImageView = findViewById(R.id.profileImage)
+
+        // Load the user's current profile image
+        val sessionManager = SessionManager(this)
+        val currentUser = sessionManager.getUserDetails()
+        profileImage.setImageResource(currentUser.profilePictureId)
 
         restaurantBox.setOnClickListener{
             val intent = Intent(this, RestaurantDetailScreen::class.java)
@@ -65,27 +74,40 @@ class DashboardScreen : Activity() {
             startActivity(intent)
         }
 
+        profileImage.setOnClickListener {
+            val intent = Intent(this, ProfileScreen::class.java)
+            startActivity(intent)
+        }
+
         val homeButton : LinearLayout = findViewById(R.id.homeButton)
         val notificationButton : LinearLayout = findViewById(R.id.notificationButton)
         val moreButton : LinearLayout = findViewById(R.id.moreButton)
         val historyButton : LinearLayout = findViewById(R.id.historyButton)
 
         homeButton.setOnClickListener{
-            val intent = Intent(this,DashboardScreen::class.java)
-            startActivity(intent)
+
         }
         notificationButton.setOnClickListener{
-            val intent = Intent(this,NotificationScreen::class.java)
+            val intent = Intent(this, NotificationScreen::class.java)
             startActivity(intent)
         }
         moreButton.setOnClickListener{
-            val intent = Intent(this,ProfileScreen::class.java)
+            val intent = Intent(this, ProfileScreen::class.java)
             startActivity(intent)
         }
         historyButton.setOnClickListener{
-            val intent = Intent(this,HistoryScreen::class.java)
+            val intent = Intent(this, HistoryScreen::class.java)
             startActivity(intent)
         }
+    }
 
+    // Refresh profile image when returning to this activity
+    override fun onResume() {
+        super.onResume()
+
+        val profileImage: ImageView = findViewById(R.id.profileImage)
+        val sessionManager = SessionManager(this)
+        val currentUser = sessionManager.getUserDetails()
+        profileImage.setImageResource(currentUser.profilePictureId)
     }
 }
