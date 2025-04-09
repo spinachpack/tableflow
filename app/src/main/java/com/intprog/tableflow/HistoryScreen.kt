@@ -9,7 +9,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.intprog.tableflow.model.ReservationManager
 import com.intprog.tableflow.model.ReservationStatus
+import com.intprog.tableflow.model.SessionManager
 import java.text.SimpleDateFormat
 import java.util.*
 

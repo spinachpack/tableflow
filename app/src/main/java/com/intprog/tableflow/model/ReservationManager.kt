@@ -1,12 +1,9 @@
-package com.intprog.tableflow
+package com.intprog.tableflow.model
 
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.intprog.tableflow.model.Reservation
-import com.intprog.tableflow.model.ReservationStatus
-import com.intprog.tableflow.model.RestaurantDataProvider
 import java.lang.reflect.Type
 import java.text.SimpleDateFormat
 import java.util.*

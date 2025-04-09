@@ -1,5 +1,4 @@
-package com.intprog.tableflow
-import com.intprog.tableflow.model.User
+package com.intprog.tableflow.model
 import android.content.Context
 import android.content.SharedPreferences
 import com.google.gson.Gson

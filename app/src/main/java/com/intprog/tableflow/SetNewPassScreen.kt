@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.ImageView
 import android.widget.Toast
 import android.text.method.PasswordTransformationMethod
+import com.intprog.tableflow.model.SessionManager
 
 
 class SetNewPassScreen : Activity() {

@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.intprog.tableflow.model.SessionManager
 
 class EditProfileScreen : Activity() {
 

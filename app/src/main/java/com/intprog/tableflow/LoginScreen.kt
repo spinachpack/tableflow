@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.RelativeLayout
+import com.intprog.tableflow.model.SessionManager
 
 class LoginScreen : Activity() {
 

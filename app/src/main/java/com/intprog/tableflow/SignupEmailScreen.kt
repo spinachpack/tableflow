@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.intprog.tableflow.model.SessionManager
 
 class SignupEmailScreen : Activity() {
 

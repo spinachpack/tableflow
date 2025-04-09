@@ -8,6 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.app.AlertDialog
 import android.view.View
+import com.intprog.tableflow.model.ReservationManager
+import com.intprog.tableflow.model.SessionManager
 import java.text.SimpleDateFormat
 import java.util.*
 
