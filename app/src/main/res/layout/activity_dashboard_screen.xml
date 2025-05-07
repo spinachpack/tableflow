@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -57,7 +58,9 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/pfphehe" />
+                    android:src="@drawable/pfphehe"
+                    app:civ_border_color="#228B22"
+                    app:civ_border_width="2.5dp" />
             </RelativeLayout>
 
 
@@ -69,36 +72,7 @@
                 android:src="@drawable/dashimage" />
 
             <!-- Buttons Section -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="20dp">
 
-                <Button
-                    android:id="@+id/bookNowButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/customborder"
-                    android:backgroundTint="#FF9800"
-                    android:text="Book Now"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/exploreButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/customborder"
-                    android:backgroundTint="#333333"
-                    android:text="Explore"
-                    android:textColor="#FF9800" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -123,24 +97,6 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginEnd="8dp"
-                            android:src="@drawable/arrow_right_solid"
-                            android:tint="#FF9800" />
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/arrow_down_solid"
-                            android:tint="#FF9800" />
-                    </LinearLayout>
                 </LinearLayout>
 
                 <View
@@ -163,14 +119,14 @@
                         android:weightSum="2">
 
                         <LinearLayout
+                            android:id="@+id/restaurantBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_weight="1"
                             android:background="@drawable/customborder"
                             android:backgroundTint="#2A2A2A"
-                            android:orientation="vertical"
-                            android:id="@+id/restaurantBox">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -214,6 +170,7 @@
                                     android:textSize="12sp" />
 
                                 <Button
+                                    android:id="@+id/restaurantButton"
                                     android:layout_width="wrap_content"
                                     android:layout_height="36dp"
                                     android:layout_gravity="center"
@@ -222,21 +179,20 @@
                                     android:backgroundTint="#F9A825"
                                     android:text="Reserve"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="12sp"
-                                    android:id="@+id/restaurantButton"/>
+                                    android:textSize="12sp" />
                             </LinearLayout>
                         </LinearLayout>
 
 
                         <LinearLayout
+                            android:id="@+id/restaurantBox2"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_weight="1"
                             android:background="@drawable/customborder"
                             android:backgroundTint="#2A2A2A"
-                            android:orientation="vertical"
-                            android:id="@+id/restaurantBox2">
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -410,6 +366,7 @@
                                     android:text="SM Seaside City Cebu"
                                     android:textColor="#B3B3B3"
                                     android:textSize="12sp" />
+
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -470,12 +427,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/notificationButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:id="@+id/notificationButton">
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="24dp"
@@ -492,12 +449,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/historyButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:id="@+id/historyButton">
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="24dp"

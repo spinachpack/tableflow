@@ -36,18 +36,34 @@
         android:background="#444444"/>
 
     <!-- Content -->
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <LinearLayout
-            android:id="@+id/historyContainer"
+        <ListView
+            android:id="@+id/historyListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#444444"
+            android:dividerHeight="1dp"
+            android:paddingBottom="16dp"
+            android:clipToPadding="false"/>
+
+        <TextView
+            android:id="@+id/emptyHistoryView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="16dp"/>
-    </ScrollView>
+            android:text="You have no reservation history"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:paddingTop="64dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="32dp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
 
     <!-- Bottom Navigation -->
     <LinearLayout

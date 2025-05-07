@@ -7,7 +7,6 @@
     android:layout_marginBottom="8dp"
     android:padding="16dp">
 
-    <!-- Header: Restaurant name, time and status -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -96,7 +95,7 @@
             android:layout_height="wrap_content"
             android:text="Cancel Booking"
             android:textColor="#FF5252"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:padding="4dp"/>
 
         <TextView
@@ -106,7 +105,7 @@
             android:layout_marginStart="16dp"
             android:text="Edit Booking"
             android:textColor="#4CAF50"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:padding="4dp"/>
 
         <TextView
@@ -116,7 +115,7 @@
             android:layout_marginStart="16dp"
             android:text="Pre-Order Food"
             android:textColor="#4CAF50"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:padding="4dp"/>
     </LinearLayout>
 </LinearLayout>

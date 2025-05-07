@@ -33,18 +33,34 @@
     </RelativeLayout>
 
     <!-- Notifications Content -->
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <LinearLayout
-            android:id="@+id/notificationsContainer"
+        <ListView
+            android:id="@+id/notificationsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#444444"
+            android:dividerHeight="1dp"
+            android:padding="8dp"
+            android:clipToPadding="false" />
+
+        <TextView
+            android:id="@+id/emptyNotificationsView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp" />
-    </ScrollView>
+            android:text="You have no notifications"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:paddingTop="64dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="32dp"
+            android:gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
 
     <!-- Bottom Navigation -->
     <LinearLayout
