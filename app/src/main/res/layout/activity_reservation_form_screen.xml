@@ -53,7 +53,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/calendar_solid"
-                    android:tint="#F9A825"/>
+                    android:tint="#FF5722"/>
 
                 <TextView
                     android:id="@+id/reservationDateTime"
@@ -75,7 +75,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/users_solid"
-                    android:tint="#F9A825"/>
+                    android:tint="#FF5722"/>
 
                 <TextView
                     android:id="@+id/reservationGuests"
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Full name"
-            android:textColor="#F9A825"
+            android:textColor="#FF5722"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"/>
 
@@ -114,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phone number"
-            android:textColor="#F9A825"
+            android:textColor="#FF5722"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"/>
 
@@ -164,7 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email Address (Optional)"
-            android:textColor="#F9A825"
+            android:textColor="#FF5722"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"/>
 
@@ -197,7 +197,7 @@
                 android:id="@+id/marketingOptIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#F9A825"/>
+                android:buttonTint="#FF5722"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -228,7 +228,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/customborder"
-            android:backgroundTint="#F9A825"
+            android:backgroundTint="#FF5722"
             android:text="Reserve Now"
             android:textColor="@android:color/white"
             android:textSize="16sp"

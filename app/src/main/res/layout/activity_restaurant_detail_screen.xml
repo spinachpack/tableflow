@@ -19,7 +19,7 @@
             android:layout_height="24dp"
             android:src="@drawable/arrow_left_solid"
             android:layout_centerVertical="true"
-            android:tint="#FFA500"/>
+            android:tint="#FF5722"/>
 
         <TextView
             android:id="@+id/restaurantName"
@@ -69,7 +69,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/location_dot_solid"
-                        android:tint="#F9A825"/>
+                        android:tint="#FF5722"/>
 
                     <TextView
                         android:id="@+id/restaurantAddress"
@@ -86,7 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Get Direction"
-                        android:textColor="#F9A825"
+                        android:textColor="#FF5722"
                         android:textSize="14sp"/>
                 </LinearLayout>
 
@@ -101,7 +101,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/clock_solid"
-                        android:tint="#F9A825"/>
+                        android:tint="#FF5722"/>
 
                     <TextView
                         android:id="@+id/restaurantHours"
@@ -125,7 +125,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/utensils_solid"
-                        android:tint="#F9A825"/>
+                        android:tint="#FF5722"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -141,7 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Description"
-                    android:textColor="#F9A825"
+                    android:textColor="#FF5722"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="8dp"/>
@@ -160,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Read More..."
-                    android:textColor="#F9A825"
+                    android:textColor="#FF5722"
                     android:textSize="14sp"
                     android:layout_marginBottom="24dp"/>
 
@@ -187,7 +187,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/calendar_solid"
-                            android:tint="#F9A825"/>
+                            android:tint="#FF5722"/>
 
                         <TextView
                             android:id="@+id/selectedDate"
@@ -226,7 +226,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/clock_solid"
-                            android:tint="#F9A825"/>
+                            android:tint="#FF5722"/>
 
                         <TextView
                             android:id="@+id/selectedTime"
@@ -265,7 +265,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:src="@drawable/users_solid"
-                            android:tint="#F9A825"/>
+                            android:tint="#FF5722"/>
 
                         <TextView
                             android:id="@+id/selectedGuests"
@@ -295,7 +295,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/customborder"
-        android:backgroundTint="#FFA500"
+        android:backgroundTint="#FF5722"
         android:text="Make Reservation"
         android:textColor="@android:color/white"
         android:textSize="16sp"/>

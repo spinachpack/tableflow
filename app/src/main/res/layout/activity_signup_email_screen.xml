@@ -14,6 +14,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Back button - kept as is -->
         <LinearLayout
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
@@ -43,181 +44,188 @@
             android:layout_height="wrap_content"
             android:text="Sign up"
             android:textColor="#FFFFFF"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="16dp"/>
 
-        <TextView
+        <!-- Content Container with width constraints -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="First Name"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal">
 
-        <EditText
-            android:id="@+id/editTextFirstName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="First Name"
-            android:textColorHint="#A0A0A0"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/customborder"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Last Name"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/editTextLastName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Last Name"
-            android:textColorHint="#A0A0A0"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/customborder"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Email"
-            android:textColorHint="#A0A0A0"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/customborder"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="12dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
-
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="Phone"
-            android:textColorHint="#A0A0A0"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/customborder"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:inputType="phone"
-            android:layout_marginBottom="12dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
 
             <EditText
-                android:id="@+id/editTextPassword"
+                android:id="@+id/editTextFirstName"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Password"
+                android:layout_height="45dp"
+                android:hint="First Name"
                 android:textColorHint="#A0A0A0"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/customborder"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:inputType="textPassword"/>
+                android:inputType="textPersonName"
+                android:layout_marginBottom="10dp"/>
 
-            <ImageView
-                android:id="@+id/togglePassword"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="12dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/eye_slash_solid"
-                android:tint="#FFFFFF" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Confirm Password"
-            android:textColor="#FFFFFF"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
 
             <EditText
-                android:id="@+id/editTextConfirmPassword"
+                android:id="@+id/editTextLastName"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="Confirm Password"
+                android:layout_height="45dp"
+                android:hint="Last Name"
                 android:textColorHint="#A0A0A0"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/customborder"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
-                android:inputType="textPassword"/>
+                android:inputType="textPersonName"
+                android:layout_marginBottom="10dp"/>
 
-            <ImageView
-                android:id="@+id/toggleConfirmPassword"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="12dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/eye_slash_solid"
-                android:tint="#FFFFFF" />
-        </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
 
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Email"
+                android:textColorHint="#A0A0A0"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/customborder"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/buttonSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Sign Up"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:background="@drawable/customborder"
-            android:backgroundTint="#FF5722"
-            android:layout_marginBottom="20dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Phone"
+                android:textColorHint="#A0A0A0"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/customborder"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="phone"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="Password"
+                    android:textColorHint="#A0A0A0"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/customborder"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="40dp"
+                    android:inputType="textPassword"/>
+
+                <ImageView
+                    android:id="@+id/togglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/eye_slash_solid"
+                    android:tint="#FFFFFF" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm Password"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/editTextConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:hint="Confirm Password"
+                    android:textColorHint="#A0A0A0"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/customborder"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="40dp"
+                    android:inputType="textPassword"/>
+
+                <ImageView
+                    android:id="@+id/toggleConfirmPassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/eye_slash_solid"
+                    android:tint="#FFFFFF" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/buttonSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Sign Up"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:background="@drawable/customborder"
+                android:backgroundTint="#FF5722"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"/>
+        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>
