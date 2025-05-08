@@ -1,18 +1,11 @@
 # 🧾 TableFlow Project Checklist
 
-## 🔧 Functionality
-- [ ] Implement all **Settings Page** button functionalities
-- [ ] Change **History** button in all navbars to **Manage**
-- [ ] Add **Forgot Password** functionality
-- [ ] Create **Pre-order Page** and implement its functionality
-- [ ] Create **Edit Booking Page** and implement its functionality
-- [ ] Add functionality to **search for restaurants**
-
-## 🗃️ Backend / Database
-- [ ] Implement **Database** integration and connection
-
-## 🧭 Navigation
-- [ ] Edit **Navbar** to point to the correct pages (double check all links)
-
-
-> Add more if naay nalimtan
+- [ ] All settings page buttons functionality
+- [ ] History button in navbars across all pages change to manage button
+- [ ] Forgot password functionality
+- [ ] Pre order page and its functionality
+- [ ] Edit booking page and its functionality
+- [ ] Functionality para maka search og restaurants
+- [ ] Database implementation
+- [ ] Edit navbar to point the correct pages (pls double check)
+- [ ] Add more if naa pay nalimtan
