@@ -8,6 +8,30 @@
     android:orientation="vertical"
     tools:context=".ProfileScreen">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#333333">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_left_solid"
+            android:layout_centerVertical="true"
+            android:tint="#FF5722"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Profile"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,40 +43,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <LinearLayout
-                android:id="@+id/backButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginVertical="20dp">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/arrow_left_solid"
-                    android:tint="#FFFFFF"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Your Profile"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"/>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#FF5722"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="10dp">
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -215,101 +213,101 @@
     </ScrollView>
 
     <!-- Fixed Navigation Bar -->
-    <LinearLayout
-        android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#2A2A2A"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:weightSum="4">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/bottomNav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#2A2A2A"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="8dp"-->
+<!--        android:weightSum="4">-->
 
-        <LinearLayout
-            android:id="@+id/homeButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/homeButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/house_solid"
-                android:tint="#9E9E9E" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/house_solid"-->
+<!--                android:tint="#9E9E9E" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textColor="#9E9E9E"
-                android:textSize="12sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Home"-->
+<!--                android:textColor="#9E9E9E"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/notificationButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/notificationButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/bell_solid"
-                android:tint="#9E9E9E" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/bell_solid"-->
+<!--                android:tint="#9E9E9E" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Notifications"
-                android:textColor="#9E9E9E"
-                android:textSize="12sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Notifications"-->
+<!--                android:textColor="#9E9E9E"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/historyButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/historyButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/clock_rotate_left_solid"
-                android:tint="#9E9E9E" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/clock_rotate_left_solid"-->
+<!--                android:tint="#9E9E9E" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="History"
-                android:textColor="#9E9E9E"
-                android:textSize="12sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="History"-->
+<!--                android:textColor="#9E9E9E"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/moreButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/moreButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ellipsis_solid"
-                android:tint="#F9A825" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/ellipsis_solid"-->
+<!--                android:tint="#F9A825" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="More"
-                android:textColor="#F9A825"
-                android:textSize="12sp" />
-        </LinearLayout>
-    </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="More"-->
+<!--                android:textColor="#F9A825"-->
+<!--                android:textSize="12sp" />-->
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
 </LinearLayout>

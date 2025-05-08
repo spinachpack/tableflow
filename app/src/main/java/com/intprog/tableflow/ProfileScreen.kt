@@ -39,14 +39,14 @@ class ProfileScreen : Activity() {
         val textViewReservationLocation: TextView = findViewById(R.id.textViewReservationLocation)
         val editProfileButton: Button = findViewById(R.id.editProfileButton)
         val logoutButton: Button = findViewById(R.id.logoutButton)
-        val backButton: LinearLayout = findViewById(R.id.backButton)
+        val backButton: ImageView = findViewById(R.id.backButton)
         val profileImage: ImageView = findViewById(R.id.profileImage)
 
         // navbar buttons
-        val homeButton: LinearLayout = findViewById(R.id.homeButton)
-        val notificationButton: LinearLayout = findViewById(R.id.notificationButton)
-        val historyButton: LinearLayout = findViewById(R.id.historyButton)
-        val moreButton: LinearLayout = findViewById(R.id.moreButton)
+//        val homeButton: LinearLayout = findViewById(R.id.homeButton)
+//        val notificationButton: LinearLayout = findViewById(R.id.notificationButton)
+//        val historyButton: LinearLayout = findViewById(R.id.historyButton)
+//        val moreButton: LinearLayout = findViewById(R.id.moreButton)
 
         // Load user data
         loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
@@ -68,27 +68,27 @@ class ProfileScreen : Activity() {
             finish()
         }
 
-        homeButton.setOnClickListener {
-            val intent = Intent(this, DashboardScreen::class.java)
-            startActivity(intent)
-        }
-
-        notificationButton.setOnClickListener {
-            val intent = Intent(this, NotificationScreen::class.java)
-            startActivity(intent)
-        }
-
-        historyButton.setOnClickListener {
-            val intent = Intent(this, HistoryScreen::class.java)
-            startActivity(intent)
-        }
-
-        moreButton.setOnClickListener {
-            // Already on profile screen, do nothing or refresh
-            // Since we're already on the ProfileScreen, we can just refresh the data
-            loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
-            loadUpcomingReservation(sessionManager, reservationManager, textViewReservationDateTime, textViewReservationLocation)
-        }
+//        homeButton.setOnClickListener {
+//            val intent = Intent(this, DashboardScreen::class.java)
+//            startActivity(intent)
+//        }
+//
+//        notificationButton.setOnClickListener {
+//            val intent = Intent(this, NotificationScreen::class.java)
+//            startActivity(intent)
+//        }
+//
+//        historyButton.setOnClickListener {
+//            val intent = Intent(this, HistoryScreen::class.java)
+//            startActivity(intent)
+//        }
+//
+//        moreButton.setOnClickListener {
+//            // Already on profile screen, do nothing or refresh
+//            // Since we're already on the ProfileScreen, we can just refresh the data
+//            loadUserData(sessionManager, textViewFullName, textViewPhone, textViewEmail, profileImage)
+//            loadUpcomingReservation(sessionManager, reservationManager, textViewReservationDateTime, textViewReservationLocation)
+//        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

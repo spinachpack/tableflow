@@ -92,7 +92,7 @@ class DashboardScreen : Activity() {
             startActivity(intent)
         }
         moreButton.setOnClickListener{
-            val intent = Intent(this, ProfileScreen::class.java)
+            val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
         historyButton.setOnClickListener{
