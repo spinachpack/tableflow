@@ -1,7 +1,7 @@
 # 🧾 TableFlow Project Checklist
 
 - [ ] All settings page buttons functionality
-- [ ] History button in navbars across all pages change to manage button
+- [ ] Change History button in navbars across all pages change to manage button
 - [ ] Forgot password functionality
 - [ ] Pre order page and its functionality
 - [ ] Edit booking page and its functionality
