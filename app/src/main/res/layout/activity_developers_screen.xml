@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Development Team"
+            android:text="Our Team"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -41,13 +41,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:layout_margin="10dp">
 
             <!-- Team Introduction -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Meet the TableFlow Team"
+                android:text="The Minds Behind TableFlow"
                 android:textColor="#FF5722"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -56,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="We are passionate about connecting diners with their perfect restaurant experience. Our team consists of skilled developers and designers who created TableFlow to make restaurant reservations seamless and enjoyable."
+                android:text="Meet the people who built TableFlow."
                 android:textColor="#B3B3B3"
                 android:textSize="14sp"
                 android:layout_marginBottom="24dp"/>
@@ -79,7 +80,8 @@
                     app:civ_border_width="2dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
@@ -100,12 +102,47 @@
                         android:textSize="14sp"
                         android:layout_marginBottom="8dp"/>
 
-                    <TextView
+                    <!-- Social Media Handles -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mary Grace is the technical lead for TableFlow, handling core functionality and backend development. She enjoys solving complex problems and creating smooth user experiences."
-                        android:textColor="#B3B3B3"
-                        android:textSize="13sp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/github"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@spinachpack"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/threads"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@spinachpack"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -127,7 +164,8 @@
                     app:civ_border_width="2dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
@@ -148,12 +186,47 @@
                         android:textSize="14sp"
                         android:layout_marginBottom="8dp"/>
 
-                    <TextView
+                    <!-- Social Media Handles -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Lyca is responsible for the sleek user interface and engaging user experience of TableFlow. Her eye for detail ensures our app is both beautiful and functional."
-                        android:textColor="#B3B3B3"
-                        android:textSize="13sp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/twitter_x"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@lycadesigns"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/instagram"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@lycaanora"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -175,7 +248,8 @@
                     app:civ_border_width="2dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
@@ -196,12 +270,47 @@
                         android:textSize="14sp"
                         android:layout_marginBottom="8dp"/>
 
-                    <TextView
+                    <!-- Social Media Handles -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rhyze specializes in Android development and ensures TableFlow runs smoothly across all devices. He's passionate about creating responsive and intuitive mobile experiences."
-                        android:textColor="#B3B3B3"
-                        android:textSize="13sp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/github"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@rhyzedev"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/threads"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@rhyzeosorno"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -223,7 +332,8 @@
                     app:civ_border_width="2dp"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="16dp">
@@ -231,7 +341,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Carlos Mendez"
+                        android:text="Lyana Yurong"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
@@ -244,12 +354,47 @@
                         android:textSize="14sp"
                         android:layout_marginBottom="8dp"/>
 
-                    <TextView
+                    <!-- Social Media Handles -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Carlos manages the database architecture and ensures all reservation data is handled securely and efficiently. His expertise keeps TableFlow running smoothly behind the scenes."
-                        android:textColor="#B3B3B3"
-                        android:textSize="13sp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/twitter_x"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@lyanaaaa"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/github"
+                            android:tint="#FF5722"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="\@lyanayurong"
+                            android:textColor="#B3B3B3"
+                            android:textSize="12sp"
+                            android:layout_marginStart="4dp"/>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -257,18 +402,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Contact Us"
+                android:text="Get in Touch"
                 android:textColor="#FF5722"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Have questions or feedback? We'd love to hear from you!"
-                android:textColor="#B3B3B3"
-                android:textSize="14sp"
                 android:layout_marginBottom="8dp"/>
 
             <LinearLayout
@@ -311,6 +448,56 @@
                     android:textColor="@android:color/white"
                     android:textSize="14sp"
                     android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <!-- Company Social Handles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/twitter_x"
+                        android:tint="#FF5722"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@tableflow"
+                        android:textColor="#B3B3B3"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/instagram"
+                        android:tint="#FF5722"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="\@tableflow_app"
+                        android:textColor="#B3B3B3"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
