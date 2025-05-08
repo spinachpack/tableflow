@@ -286,7 +286,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="\@rhyzedev"
+                            android:text="\@monday-2-friday"
                             android:textColor="#B3B3B3"
                             android:textSize="12sp"
                             android:layout_marginStart="4dp"/>
