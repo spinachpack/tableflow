@@ -93,23 +93,6 @@ class PreOrderScreen : Activity() {
             savePreOrder()
         }
 
-        // Navigation buttons
-        findViewById<View>(R.id.homeButton).setOnClickListener {
-            // Navigate to home
-            finish()
-        }
-
-        findViewById<View>(R.id.notificationButton).setOnClickListener {
-            // Navigate to notifications
-        }
-
-        findViewById<View>(R.id.historyButton).setOnClickListener {
-            // Already on history screen
-        }
-
-        findViewById<View>(R.id.moreButton).setOnClickListener {
-            // Navigate to more options
-        }
     }
 
     private fun loadMenu() {
