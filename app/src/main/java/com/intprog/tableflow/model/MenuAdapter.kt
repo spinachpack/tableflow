@@ -59,18 +59,19 @@ class MenuAdapter(
             holder.descriptionTextView.visibility = View.GONE
         }
 
+        // Don't update the UI directly - let the data model update trigger the UI update
         holder.decreaseButton.setOnClickListener {
             if (orderItem.quantity > 0) {
                 val newQuantity = orderItem.quantity - 1
-                holder.quantityTextView.text = newQuantity.toString()
                 onQuantityChangeListener(menuItem, newQuantity)
+                // Let notifyDataSetChanged update the UI
             }
         }
 
         holder.increaseButton.setOnClickListener {
             val newQuantity = orderItem.quantity + 1
-            holder.quantityTextView.text = newQuantity.toString()
             onQuantityChangeListener(menuItem, newQuantity)
+            // Let notifyDataSetChanged update the UI
         }
 
         return view

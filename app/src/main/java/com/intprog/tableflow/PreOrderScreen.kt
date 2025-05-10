@@ -5,9 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.LinearLayout
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import com.intprog.tableflow.model.MenuAdapter
 import com.intprog.tableflow.model.MenuItem
 import com.intprog.tableflow.model.MenuDataProvider
 import com.intprog.tableflow.model.OrderItem
@@ -15,6 +16,7 @@ import com.intprog.tableflow.model.PreOrder
 import com.intprog.tableflow.model.PreOrderManager
 import com.intprog.tableflow.model.Reservation
 import com.intprog.tableflow.model.ReservationManager
+import com.intprog.tableflow.model.RestaurantDataProvider
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -28,15 +30,12 @@ class PreOrderScreen : Activity() {
     private lateinit var restaurantNameText: TextView
     private lateinit var reservationDetails: TextView
     private lateinit var totalPrice: TextView
+    private lateinit var menuListView: ListView
 
-    // Restaurant-specific menu layouts
-    private lateinit var houseOfLechonMenu: LinearLayout
-    private lateinit var stkMenu: LinearLayout
-    private lateinit var lighthouseMenu: LinearLayout
-    private lateinit var tongYangMenu: LinearLayout
-
-    private val selectedItems = mutableListOf<OrderItem>()
+    // Single source of truth for menu items
+    private val orderItems = mutableListOf<OrderItem>()
     private var existingPreOrder: PreOrder? = null
+    private lateinit var menuAdapter: MenuAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +67,11 @@ class PreOrderScreen : Activity() {
         // Initialize UI elements
         initializeViews()
 
+        // Load menu first to initialize all menu items
+        loadMenu()
+
         // Load existing pre-order if any
         loadExistingPreOrder()
-
-        // Load restaurant menu
-        loadMenu()
     }
 
     private fun initializeViews() {
@@ -81,11 +80,8 @@ class PreOrderScreen : Activity() {
         reservationDetails = findViewById(R.id.reservationDetails)
         totalPrice = findViewById(R.id.totalPrice)
 
-        // Restaurant-specific menus
-        houseOfLechonMenu = findViewById(R.id.houseOfLechonMenu)
-        stkMenu = findViewById(R.id.stkMenu)
-        lighthouseMenu = findViewById(R.id.lighthouseMenu)
-        tongYangMenu = findViewById(R.id.tongYangMenu)
+        // Menu list view
+        menuListView = findViewById(R.id.menuListView)
 
         // Back button
         findViewById<ImageView>(R.id.backButton).setOnClickListener {
@@ -116,18 +112,10 @@ class PreOrderScreen : Activity() {
         }
     }
 
-    private fun loadExistingPreOrder() {
-        existingPreOrder = preOrderManager.getPreOrderForReservation(reservation.id)
-
-        if (existingPreOrder != null) {
-            // Add items from existing pre-order to selected items
-            selectedItems.addAll(existingPreOrder!!.items)
-        }
-    }
-
     private fun loadMenu() {
         // Set restaurant name
-        restaurantNameText.text = reservation.restaurantName
+        val restaurant = RestaurantDataProvider.getRestaurantById(reservation.restaurantId)
+        restaurantNameText.text = restaurant?.name ?: reservation.restaurantName
 
         // Format reservation details
         val dateFormat = SimpleDateFormat("MMMM d, yyyy", Locale.getDefault())
@@ -149,138 +137,64 @@ class PreOrderScreen : Activity() {
             reservationDetails.text = "Reservation: ${reservation.date} at ${reservation.time}"
         }
 
-        // Show specific menu based on restaurant ID
-        when (reservation.restaurantId) {
-            "house_of_lechon" -> {
-                houseOfLechonMenu.visibility = View.VISIBLE
-                setupLechonMenu()
-            }
-            "stk_ta_bay" -> {
-                stkMenu.visibility = View.VISIBLE
-                setupStkMenu()
-            }
-            "lighthouse" -> {
-                lighthouseMenu.visibility = View.VISIBLE
-                setupLighthouseMenu()
-            }
-            "tong_yang" -> {
-                tongYangMenu.visibility = View.VISIBLE
-                setupTongYangMenu()
-            }
-            else -> {
-                // If restaurant ID doesn't match any predefined menus, show message
-                Toast.makeText(this, "Menu not available for this restaurant", Toast.LENGTH_SHORT).show()
-            }
+        // Get menu items from provider
+        val menuItems = MenuDataProvider.getMenuForRestaurant(reservation.restaurantId)
+
+        // Initialize all menu items with quantity 0
+        orderItems.clear()
+        menuItems.forEach { menuItem ->
+            orderItems.add(OrderItem(menuItem, 0))
         }
 
+        // Setup adapter for menu list with the single source of truth
+        menuAdapter = MenuAdapter(this, orderItems) { menuItem, newQuantity ->
+            updateOrderItem(menuItem, newQuantity)
+        }
+
+        menuListView.adapter = menuAdapter
         updateTotalPrice()
     }
 
-    private fun setupLechonMenu() {
-        // Setup click listeners and quantity controls for each menu item
-        setupMenuItem(findViewById(R.id.lechon_item1), "Whole Lechon", 3500.0)
-        setupMenuItem(findViewById(R.id.lechon_item2), "Half Lechon", 1800.0)
-        setupMenuItem(findViewById(R.id.lechon_item3), "Lechon Kawali", 350.0)
-        setupMenuItem(findViewById(R.id.lechon_side1), "Rice Platter", 180.0)
-        setupMenuItem(findViewById(R.id.lechon_side2), "Puso (Hanging Rice)", 20.0)
-    }
+    private fun loadExistingPreOrder() {
+        existingPreOrder = preOrderManager.getPreOrderForReservation(reservation.id)
 
-    private fun setupStkMenu() {
-        setupMenuItem(findViewById(R.id.stk_item1), "Sutukil Combo", 650.0)
-        setupMenuItem(findViewById(R.id.stk_item2), "Grilled Fish", 350.0)
-        setupMenuItem(findViewById(R.id.stk_item3), "Shrimp Platter", 450.0)
-        setupMenuItem(findViewById(R.id.stk_side1), "Garlic Rice", 60.0)
-        setupMenuItem(findViewById(R.id.stk_side2), "Bam-i Noodles", 120.0)
-    }
-
-    private fun setupLighthouseMenu() {
-        setupMenuItem(findViewById(R.id.lighthouse_item1), "Crispy Pata", 550.0)
-        setupMenuItem(findViewById(R.id.lighthouse_item2), "Kare-Kare", 450.0)
-        setupMenuItem(findViewById(R.id.lighthouse_item3), "Sinigang na Hipon", 380.0)
-        setupMenuItem(findViewById(R.id.lighthouse_dessert1), "Halo-Halo", 150.0)
-        setupMenuItem(findViewById(R.id.lighthouse_dessert2), "Leche Flan", 120.0)
-    }
-
-    private fun setupTongYangMenu() {
-        setupMenuItem(findViewById(R.id.tongyang_item1), "Korean BBQ Set A", 499.0)
-        setupMenuItem(findViewById(R.id.tongyang_item2), "Korean BBQ Set B", 699.0)
-        setupMenuItem(findViewById(R.id.tongyang_item3), "Samgyeopsal", 350.0)
-        setupMenuItem(findViewById(R.id.tongyang_side1), "Kimchi", 80.0)
-        setupMenuItem(findViewById(R.id.tongyang_side2), "Doenjang Jjigae", 120.0)
-    }
-
-    private fun setupMenuItem(itemView: View, name: String, price: Double) {
-        // Find the views within the included layout
-        val itemName = itemView.findViewById<TextView>(R.id.itemName)
-        val itemPrice = itemView.findViewById<TextView>(R.id.itemPrice)
-        val itemCount = itemView.findViewById<TextView>(R.id.itemCount)
-        val decreaseButton = itemView.findViewById<ImageView>(R.id.decreaseItem)
-        val increaseButton = itemView.findViewById<ImageView>(R.id.increaseItem)
-
-        // Set the item details
-        itemName.text = name
-
-        val formatter = NumberFormat.getCurrencyInstance(Locale("en", "PH"))
-        itemPrice.text = formatter.format(price)
-
-        // Create a menu item
-        val menuItem = MenuItem(
-            id = name.replace(" ", "_").toLowerCase(),
-            name = name,
-            price = price,
-            description = "",
-            restaurantId = reservation.restaurantId
-        )
-
-        // Check if this item exists in selected items
-        val existingItem = selectedItems.find { it.menuItem.id == menuItem.id }
-        var quantity = existingItem?.quantity ?: 0
-        itemCount.text = quantity.toString()
-
-        // Set up listeners
-        decreaseButton.setOnClickListener {
-            if (quantity > 0) {
-                quantity--
-                itemCount.text = quantity.toString()
-                updateOrderItem(menuItem, quantity)
+        if (existingPreOrder != null) {
+            // Update quantities for existing items
+            existingPreOrder!!.items.forEach { existingItem ->
+                val orderItemIndex = orderItems.indexOfFirst { it.menuItem.id == existingItem.menuItem.id }
+                if (orderItemIndex != -1) {
+                    orderItems[orderItemIndex].quantity = existingItem.quantity
+                }
             }
-        }
 
-        increaseButton.setOnClickListener {
-            quantity++
-            itemCount.text = quantity.toString()
-            updateOrderItem(menuItem, quantity)
+            // Notify adapter of changes
+            menuAdapter.notifyDataSetChanged()
+            updateTotalPrice()
         }
     }
 
     private fun updateOrderItem(menuItem: MenuItem, quantity: Int) {
-        val existingItemIndex = selectedItems.indexOfFirst { it.menuItem.id == menuItem.id }
+        // Find and update the item in our single source of truth
+        val index = orderItems.indexOfFirst { it.menuItem.id == menuItem.id }
+        if (index != -1) {
+            orderItems[index].quantity = quantity
 
-        if (existingItemIndex != -1) {
-            if (quantity > 0) {
-                // Update quantity
-                selectedItems[existingItemIndex].quantity = quantity
-            } else {
-                // Remove item if quantity is 0
-                selectedItems.removeAt(existingItemIndex)
-            }
-        } else if (quantity > 0) {
-            // Add new item
-            selectedItems.add(OrderItem(menuItem, quantity))
+            // Important: Notify adapter that data has changed
+            menuAdapter.notifyDataSetChanged()
+
+            updateTotalPrice()
         }
-
-        updateTotalPrice()
     }
 
     private fun updateTotalPrice() {
-        val totalAmount = selectedItems.sumOf { it.menuItem.price * it.quantity }
+        val totalAmount = orderItems.sumOf { it.menuItem.price * it.quantity }
         val formatter = NumberFormat.getCurrencyInstance(Locale("en", "PH"))
         totalPrice.text = "Total: ${formatter.format(totalAmount)}"
     }
 
     private fun savePreOrder() {
         // Filter items with quantity > 0
-        val itemsToSave = selectedItems.filter { it.quantity > 0 }
+        val itemsToSave = orderItems.filter { it.quantity > 0 }
 
         if (itemsToSave.isEmpty()) {
             // If no items selected, delete existing pre-order if any
