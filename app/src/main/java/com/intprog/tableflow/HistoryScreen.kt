@@ -46,11 +46,15 @@ class HistoryScreen : Activity() {
             },
             onEditClickListener = { reservationId ->
                 // Launch edit reservation activity
-                Toast.makeText(this, "Edit feature coming soon", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, EditReservation::class.java)
+                intent.putExtra("reservation_id", reservationId)
+                startActivity(intent)
             },
             onPreOrderClickListener = { reservationId ->
                 // Launch pre-order activity
-                Toast.makeText(this, "Pre-order feature coming soon", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, PreOrderScreen::class.java)
+                intent.putExtra("reservation_id", reservationId)  // Fix: Add reservation ID to intent
+                startActivity(intent)
             }
         )
 

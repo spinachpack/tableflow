@@ -63,7 +63,7 @@
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:hint="Email"
                 android:textColorHint="#A0A0A0"
                 android:textColor="#FFFFFF"
@@ -84,7 +84,7 @@
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:hint="Password"
                 android:textColorHint="#A0A0A0"
                 android:textColor="#FFFFFF"

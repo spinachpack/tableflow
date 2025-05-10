@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222222"
+    android:orientation="vertical"
+    tools:context=".PreOrderScreen">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333333"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/arrow_left_solid"
+                android:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Pre-Order Food"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Restaurant Info Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333333"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/restaurantName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Restaurant Name"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reservationDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Reservation: May 10, 2025 at 7:00 PM"
+            android:textColor="#B3B3B3"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2A2A2A"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Menu Items"
+            android:textColor="#FF5722"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: ₱0.00"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Menu will be loaded dynamically based on restaurant ID -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/menuRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <!-- Restaurant-specific menu layouts -->
+            <!-- House of Lechon Menu -->
+            <LinearLayout
+                android:id="@+id/houseOfLechonMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Menu Categories -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Lechon Specials"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Menu Items -->
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lechon_item1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lechon_item2"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lechon_item3"/>
+
+                <!-- Sides Category -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Sides"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lechon_side1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lechon_side2"/>
+            </LinearLayout>
+
+            <!-- STK Ta Bay Menu -->
+            <LinearLayout
+                android:id="@+id/stkMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Menu Categories -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Sutukil Specials"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Menu Items -->
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/stk_item1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/stk_item2"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/stk_item3"/>
+
+                <!-- Sides Category -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Rice &amp; Sides"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/stk_side1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/stk_side2"/>
+            </LinearLayout>
+
+            <!-- Lighthouse Restaurant Menu -->
+            <LinearLayout
+                android:id="@+id/lighthouseMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Menu Categories -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Filipino Classics"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Menu Items -->
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lighthouse_item1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lighthouse_item2"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lighthouse_item3"/>
+
+                <!-- Desserts Category -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Desserts"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lighthouse_dessert1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/lighthouse_dessert2"/>
+            </LinearLayout>
+
+            <!-- Tong Yang Menu -->
+            <LinearLayout
+                android:id="@+id/tongYangMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Menu Categories -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Korean BBQ"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <!-- Menu Items -->
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/tongyang_item1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/tongyang_item2"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/tongyang_item3"/>
+
+                <!-- Sides Category -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#333333"
+                    android:padding="8dp"
+                    android:text="Sides &amp; Soups"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/tongyang_side1"/>
+                <include layout="@layout/menu_item_with_quantity"
+                    android:id="@+id/tongyang_side2"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Submit Pre-Order Button -->
+    <Button
+        android:id="@+id/submitPreOrderButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/customborder"
+        android:backgroundTint="#FF5722"
+        android:padding="12dp"
+        android:text="Submit Pre-Order"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <!-- Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2A2A2A"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="4">
+
+        <LinearLayout
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/house_solid"
+                android:tint="#9E9E9E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notificationButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/bell_solid"
+                android:tint="#9E9E9E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notifications"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/historyButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/clock_rotate_left_solid"
+                android:tint="#FF5722" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textColor="#FF5722"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/moreButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ellipsis_solid"
+                android:tint="#9E9E9E" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More"
+                android:textColor="#9E9E9E"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

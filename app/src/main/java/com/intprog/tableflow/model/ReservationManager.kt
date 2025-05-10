@@ -46,6 +46,22 @@ class ReservationManager(context: Context) {
         return reservation
     }
 
+    // Get a reservation by ID
+    fun getReservationById(reservationId: String): Reservation? {
+        return getAllReservations().find { it.id == reservationId }
+    }
+
+    // Update an existing reservation
+    fun updateReservation(reservation: Reservation) {
+        val reservations = getAllReservations().toMutableList()
+        val index = reservations.indexOfFirst { it.id == reservation.id }
+
+        if (index != -1) {
+            reservations[index] = reservation
+            saveReservations(reservations)
+        }
+    }
+
     // Update reservation status
     fun updateReservationStatus(reservationId: String, status: ReservationStatus) {
         val reservations = getAllReservations().toMutableList()
