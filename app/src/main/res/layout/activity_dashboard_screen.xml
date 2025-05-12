@@ -459,13 +459,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/clock_rotate_left_solid"
+                android:src="@drawable/thumbtack_solid"
                 android:tint="#9E9E9E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History"
+                android:text="Bookings"
                 android:textColor="#9E9E9E"
                 android:textSize="12sp" />
         </LinearLayout>

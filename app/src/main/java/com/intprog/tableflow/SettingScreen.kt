@@ -32,9 +32,7 @@ class SettingScreen : Activity() {
         // Initialize views
         val profileSection: RelativeLayout = findViewById(R.id.profileSection)
         val editProfileButton: LinearLayout = findViewById(R.id.editProfileButton)
-        val notificationSettingsButton: LinearLayout = findViewById(R.id.notificationSettingsButton)
-        val appThemeButton: LinearLayout = findViewById(R.id.appThemeButton)
-        val languageButton: LinearLayout = findViewById(R.id.languageButton)
+        val changePasswordButton: LinearLayout = findViewById(R.id.changePasswordButton)
         val aboutAppButton: LinearLayout = findViewById(R.id.aboutAppButton)
         val devTeamButton: LinearLayout = findViewById(R.id.devTeamButton)
         val logoutButton: LinearLayout = findViewById(R.id.logoutButton)
@@ -57,19 +55,8 @@ class SettingScreen : Activity() {
             startActivity(Intent(this, EditProfileScreen::class.java))
         }
 
-        notificationSettingsButton.setOnClickListener {
-            // Launch notification settings
-            showNotImplementedYetToast("Notification Settings")
-            // Once implemented:
-            // startActivity(Intent(this, NotificationSettingsScreen::class.java))
-        }
-
-        appThemeButton.setOnClickListener {
-            showThemeSelectionDialog()
-        }
-
-        languageButton.setOnClickListener {
-            showLanguageSelectionDialog()
+        changePasswordButton.setOnClickListener {
+            startActivity(Intent(this, SetNewPassScreen::class.java))
         }
 
         aboutAppButton.setOnClickListener {
@@ -119,63 +106,6 @@ class SettingScreen : Activity() {
         textViewEmail.text = user.email
         profileImage.setImageResource(user.profilePictureId)
     }
-
-    private fun showNotImplementedYetToast(featureName: String) {
-        Toast.makeText(this, "$featureName feature coming soon!", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun showThemeSelectionDialog() {
-        val themes = arrayOf("Light", "Dark", "System Default")
-        var selectedTheme = 1 // Default is Dark
-
-        AlertDialog.Builder(this)
-            .setTitle("Select Theme")
-            .setSingleChoiceItems(themes, selectedTheme) { _, which ->
-                selectedTheme = which
-            }
-            .setPositiveButton("Apply") { _, _ ->
-                // Apply the selected theme
-                when (selectedTheme) {
-                    0 -> {
-                        // Apply Light Theme
-                        // For now just show a toast
-                        Toast.makeText(this, "Light theme will be applied on next restart", Toast.LENGTH_SHORT).show()
-                    }
-                    1 -> {
-                        // Apply Dark Theme (already applied)
-                        Toast.makeText(this, "Dark theme is already applied", Toast.LENGTH_SHORT).show()
-                    }
-                    2 -> {
-                        // Apply System Default
-                        Toast.makeText(this, "System default theme will be applied on next restart", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
-    private fun showLanguageSelectionDialog() {
-        val languages = arrayOf("English", "Spanish", "French", "German", "Chinese", "Japanese")
-        var selectedLanguage = 0 // Default is English
-
-        AlertDialog.Builder(this)
-            .setTitle("Select Language")
-            .setSingleChoiceItems(languages, selectedLanguage) { _, which ->
-                selectedLanguage = which
-            }
-            .setPositiveButton("Apply") { _, _ ->
-                // Apply the selected language
-                Toast.makeText(this, "Language set to ${languages[selectedLanguage]}", Toast.LENGTH_SHORT).show()
-
-                // Here you would implement the actual language change
-                // This might involve creating a LanguageManager similar to SessionManager
-                // and then restarting the app or activity
-            }
-            .setNegativeButton("Cancel", null)
-            .show()
-    }
-
 
     private fun showLogoutConfirmationDialog() {
         AlertDialog.Builder(this)

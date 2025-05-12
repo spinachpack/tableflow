@@ -39,9 +39,8 @@ class EditProfileScreen : Activity() {
         val editTextFirstName: EditText = findViewById(R.id.editTextFirstName)
         val editTextLastName: EditText = findViewById(R.id.editTextLastName)
         val editTextPhone: EditText = findViewById(R.id.editTextPhone)
-        val buttonChangePassword: Button = findViewById(R.id.buttonChangePassword)
         val buttonUpdate: Button = findViewById(R.id.buttonUpdate)
-        val backButton: LinearLayout = findViewById(R.id.backButton)
+        val backButton: ImageView = findViewById(R.id.backButton)
         val changeProfilePicture: TextView = findViewById(R.id.changeProfilePicture)
         val profileChange: FrameLayout = findViewById(R.id.profileChange)
         val profileImage: ImageView = findViewById(R.id.profileImage)
@@ -59,12 +58,6 @@ class EditProfileScreen : Activity() {
                 Toast.makeText(this, "No changes made to profile", Toast.LENGTH_SHORT).show()
                 finish()
             }
-        }
-
-        buttonChangePassword.setOnClickListener {
-            val intent = Intent(this, SetNewPassScreen::class.java)
-            startActivity(intent)
-            finish()
         }
 
         backButton.setOnClickListener {

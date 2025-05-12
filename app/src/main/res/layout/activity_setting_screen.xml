@@ -132,9 +132,9 @@
                     android:tint="#B3B3B3"/>
             </LinearLayout>
 
-            <!-- Notification Settings -->
+            <!-- Change Password -->
             <LinearLayout
-                android:id="@+id/notificationSettingsButton"
+                android:id="@+id/changePasswordButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -147,111 +147,17 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/bell_solid"
+                    android:src="@drawable/key_solid"
                     android:tint="#B3B3B3"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Notification Settings"
+                    android:text="Change Password"
                     android:textColor="@android:color/white"
                     android:textSize="15sp"
                     android:layout_marginStart="16dp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/chevron_right_solid"
-                    android:tint="#B3B3B3"/>
-            </LinearLayout>
-
-            <!-- App Settings -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="App"
-                android:textColor="#FF5722"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
-
-            <!-- App Theme -->
-            <LinearLayout
-                android:id="@+id/appThemeButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/customborder"
-                android:backgroundTint="#2A2A2A"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/palette_solid"
-                    android:tint="#B3B3B3"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="App Theme"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:layout_marginStart="16dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dark"
-                    android:textColor="#B3B3B3"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="8dp"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:src="@drawable/chevron_right_solid"
-                    android:tint="#B3B3B3"/>
-            </LinearLayout>
-
-            <!-- Language -->
-            <LinearLayout
-                android:id="@+id/languageButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:background="@drawable/customborder"
-                android:backgroundTint="#2A2A2A"
-                android:padding="16dp"
-                android:layout_marginBottom="16dp">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/globe_solid"
-                    android:tint="#B3B3B3"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Language"
-                    android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:layout_marginStart="16dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="English"
-                    android:textColor="#B3B3B3"
-                    android:textSize="14sp"
-                    android:layout_marginEnd="8dp"/>
 
                 <ImageView
                     android:layout_width="16dp"

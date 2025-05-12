@@ -8,6 +8,31 @@
     android:orientation="vertical"
     tools:context=".EditProfileScreen">
 
+    <!-- Header with consistent styling -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="#333333">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/arrow_left_solid"
+            android:layout_centerVertical="true"
+            android:tint="#FF5722"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Edit Profile"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -25,33 +50,7 @@
                 android:padding="20dp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/backButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginVertical="20dp">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/arrow_left_solid"
-                        android:tint="#FFFFFF"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit Profile"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="4dp"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#FF5722"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -165,18 +164,6 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/buttonChangePassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="Change Password"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
-                    android:textAllCaps="false"
-                    android:background="@drawable/customborder"
-                    android:backgroundTint="#444444"
-                    android:layout_marginBottom="16dp"/>
-
-                <Button
                     android:id="@+id/buttonUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -186,7 +173,8 @@
                     android:textAllCaps="false"
                     android:background="@drawable/customborder"
                     android:backgroundTint="#FF5722"
-                    android:layout_marginBottom="40dp"/>
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="10dp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -256,13 +244,13 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/clock_rotate_left_solid"
+                android:src="@drawable/thumbtack_solid"
                 android:tint="#9E9E9E" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="History"
+                android:text="Bookings"
                 android:textColor="#9E9E9E"
                 android:textSize="12sp" />
         </LinearLayout>
