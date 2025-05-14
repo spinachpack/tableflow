@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#222222"
-    android:padding="24dp"
     android:gravity="center_horizontal"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SignupScreen">
@@ -26,6 +25,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttonsignup"
         android:padding="12dp"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="16dp">
 
         <ImageView
@@ -54,7 +54,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/buttonsignup"
         android:padding="12dp"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="24dp">
 
         <ImageView
             android:id="@+id/google_icon"
@@ -94,7 +95,8 @@
         android:textSize="16sp"
         android:background="@drawable/customborder"
         android:backgroundTint="#FF5722"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:layout_marginHorizontal="24dp"/>
 
     <!-- Bottom Text -->
     <LinearLayout

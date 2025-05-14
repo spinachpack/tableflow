@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#222222"
     android:orientation="vertical"
-    tools:context=".EditProfileScreen">
+    tools:context=".EditProfileScreen"
+    android:fitsSystemWindows="true">
 
     <!-- Header with consistent styling -->
     <RelativeLayout

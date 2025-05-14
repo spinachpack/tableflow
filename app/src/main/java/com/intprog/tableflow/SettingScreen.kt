@@ -36,6 +36,7 @@ class SettingScreen : Activity() {
         val aboutAppButton: LinearLayout = findViewById(R.id.aboutAppButton)
         val devTeamButton: LinearLayout = findViewById(R.id.devTeamButton)
         val logoutButton: LinearLayout = findViewById(R.id.logoutButton)
+        val backButton: ImageView = findViewById(R.id.backButton)
 
         // Navigation bar buttons
         val homeButton: LinearLayout = findViewById(R.id.homeButton)
@@ -69,6 +70,20 @@ class SettingScreen : Activity() {
 
         logoutButton.setOnClickListener {
             showLogoutConfirmationDialog()
+        }
+
+        //added back button I'm a genius
+        //⣿⠿⠿⠛⠛⠛⠟⠿⠻⣿⣿⡿⠿⠿⠛⠛⠛⠛⠿⢿
+        //⣷⣴⣾⠿⠿⠿⣷⢶⢾⣿⣿⡿⢶⡶⠿⠻⠛⣿⣶⣽
+        //⣿⣿⣏⠶⠀⠀⠭⢺⣺⣿⣿⣧⣺⠧⠄⠀⡰⢛⣽⣿
+        //⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        //⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿
+        //⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⢏⣾⣿
+        //⣿⣿⣿⣿⣿⠻⠿⠿⠿⠿⠿⠿⢛⣛⣭⣾⣿⣸⣿⣿
+        //⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣿⣿⣿
+        backButton.setOnClickListener {
+            // For now, just finish the activity
+            finish()
         }
 
         // Navigation bar listeners

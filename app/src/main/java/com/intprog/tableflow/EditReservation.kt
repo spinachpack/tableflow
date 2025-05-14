@@ -3,6 +3,7 @@ package com.intprog.tableflow
 import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
@@ -108,18 +109,29 @@ class EditReservation : Activity() {
         findViewById<android.view.View>(R.id.homeButton).setOnClickListener {
             // Navigate to home
             finish()
+            // added intent to return to dashboard screen -R
+            startActivity(Intent(this, DashboardScreen::class.java))
         }
 
         findViewById<android.view.View>(R.id.notificationButton).setOnClickListener {
             // Navigate to notifications
+            finish()
+            // added intent -R
+            startActivity(Intent(this, NotificationScreen::class.java))
         }
 
-        findViewById<android.view.View>(R.id.historyButton).setOnClickListener {
+        findViewById<android.view.View>(R.id.bookingsButton).setOnClickListener {
             // Already on history screen
+            finish()
+            // added intent -R
+            startActivity(Intent(this, HistoryScreen::class.java))
         }
 
         findViewById<android.view.View>(R.id.moreButton).setOnClickListener {
             // Navigate to more options
+            finish()
+            // added intent -R
+            startActivity(Intent(this, SettingScreen::class.java))
         }
     }
 

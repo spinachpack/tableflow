@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:background="#222222"
     android:padding="20dp"
-    tools:context=".ForgotPassScreen">
+    tools:context=".ForgotPassScreen"
+    android:fitsSystemWindows="true">
 
     <!-- Back Button -->
     <LinearLayout
@@ -20,16 +21,17 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/arrow_left_solid"
-            android:tint="#FFFFFF"/>
+            android:tint="#FF5722"/>
 
-        <TextView
+        <!--remove text for consistency-->
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="4dp"/>
+            android:layout_marginStart="4dp"/>-->
     </LinearLayout>
 
     <LinearLayout

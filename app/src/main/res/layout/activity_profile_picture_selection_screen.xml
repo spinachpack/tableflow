@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="#222222"
     android:orientation="vertical"
-    tools:context=".ProfilePictureSelectionScreen">
+    tools:context=".ProfilePictureSelectionScreen"
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,16 +31,17 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/arrow_left_solid"
-                    android:tint="#FFFFFF"/>
+                    android:tint="#FF5722"/>
 
-                <TextView
+                <!--removed text for consistency-->
+                <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Back"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"/>
+                    android:layout_marginStart="4dp"/>-->
             </LinearLayout>
 
             <View
