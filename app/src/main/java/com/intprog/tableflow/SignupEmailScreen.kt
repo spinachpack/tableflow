@@ -5,12 +5,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.intprog.tableflow.api.RetrofitClient
 import com.intprog.tableflow.model.SessionManager
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignupEmailScreen : Activity() {
 
@@ -139,8 +145,22 @@ class SignupEmailScreen : Activity() {
             return
         }
 
-        // Create user and save to shared preferences
+        //retrofit shizzle
         val user = User(firstName, lastName, email, phone, password)
+        RetrofitClient.instance.addUser(user).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                Toast.makeText(this@SignupEmailScreen, "User added", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(this@SignupEmailScreen, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Log.e("Signup", "onFailure triggered", t)
+            }
+        })
+
+
+        // Create user and save to shared preferences
+        /*val user = User(firstName, lastName, email, phone, password)*/
 
         // This will now also call saveUser() internally
         sessionManager.saveUserLoginSession(user)
